@@ -43,7 +43,7 @@ print(nums)
 nums.insert(1, 99) 
 print(nums)
 
-# remove
+# remove last elem by default
 last = nums.pop()
 print(f"{last=}")
 
