@@ -11,15 +11,21 @@ Each class represents a concept.
 - ToDoList manages a collection of Task objects.
 
 Inheritance
-- HighPriorityTask uses super().__init__(...) to invoke the parent (Task) constructor, inheriting its attributes and methods but also adding or overriding where needed.
+- HighPriorityTask uses super().__init__(...) to invoke the parent (Task) constructor, inheriting its 
+  attributes and methods but also adding or overriding where needed.
 
 Methods
-- Inside the ToDoList class, we have methods like add_task, view_tasks, edit_task, delete_task, and toggle_task_completion.
-These methods encapsulate the logic for each operation, improving clarity and reusability.
+- Inside the ToDoList class, we have methods like add_task, view_tasks, edit_task, delete_task, and 
+  toggle_task_completion.
+  
+  These methods encapsulate the logic for each operation, improving clarity and reusability.
 
 Encapsulation
-- Each class handles its own internal data. For example, Task manages the task’s title and status, while ToDoList manages the overall list of tasks.
-By structuring your code with classes, you make it more organized, modular, and easier to maintain or extend (e.g., adding new task types, or storing/saving tasks in a file/database).
+- Each class handles its own internal data. For example, Task manages the task’s title and status, while 
+  ToDoList manages the overall list of tasks.
+
+By structuring your code with classes, you make it more organized, modular, and easier to maintain or 
+extend (e.g., adding new task types, or storing/saving tasks in a file/database).
 
 """
 
