@@ -25,7 +25,7 @@ class User:
       print(f"- {friend.username}")
     print("\nPosts:")
     for post in self.posts:
-      print(f"- {post.conent} (Posted on: {post.timestamp})")
+      print(f"- {post.content} (Posted on: {post.timestamp})")
 
 class Post:
   def __init__(self, content, author):
@@ -67,13 +67,13 @@ def main():
     if choice == "1":  # Create Profile
       username = input("Ener a username: ")
       bio = input("Enter a short bio (optional): ") 
-      newtork.create_user(username, bio) 
+      network.create_user(username, bio) 
     elif choice == "2":  # Add friend 
       username = input("Enter your username: ")
       user = network.get_user(username)
       if user:
         friend_username = input("Enter your friend's username: ") 
-        friend = newtork.get_user(friend_username) 
+        friend = network.get_user(friend_username) 
         if friend:
           user.add_friend(friend)
         else:
