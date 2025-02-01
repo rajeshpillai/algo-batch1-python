@@ -117,10 +117,10 @@ Bank (Asset): ₹3,000
 Expenses (Expense): ₹5,000
 Revenue (Revenue): ₹10,000
 Final Status
-✅ Total Assets = ₹5,000 (₹2,000 in Cash + ₹3,000 in Bank)
-✅ Total Income = ₹10,000
-✅ Total Expenses = ₹5,000
-✅ Net Profit = ₹5,000 (Revenue - Expenses)
+- ✅ Total Assets = ₹5,000 (₹2,000 in Cash + ₹3,000 in Bank)
+- ✅ Total Income = ₹10,000
+- ✅ Total Expenses = ₹5,000
+- ✅ Net Profit = ₹5,000 (Revenue - Expenses)
 
 Summary
 - Tracked salary income and credited it to Bank.
