@@ -19,3 +19,12 @@ source venv/bin/activate
 ```
 deactivate
 ```
+
+# Setup
+
+## For speech
+
+```
+sudo apt install sox
+sudo apt install speech-dispatcher
+```
