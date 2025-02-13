@@ -62,7 +62,7 @@ class ToDoList:
                                        task.completed))
 
     def load_tasks(self):
-        """Loads tasks from a binary file using random access."""
+        """Loads tasks from a binary file using random access, ensuring correct alignment."""
         if not os.path.exists(TASKS_FILE):
             return
 
@@ -70,23 +70,29 @@ class ToDoList:
         with open(TASKS_FILE, "rb") as file:
             while True:
                 pos = file.tell()  # Get current position
-                data = file.read(NORMAL_TASK_SIZE)
-                if not data:
-                    break  # End of file
+                data = file.read(NORMAL_TASK_SIZE)  # Read a full normal task record
 
-                task_id, title, completed = struct.unpack("I50s?", data)
-                title = title.decode().strip()
+                if not data:  # End of file
+                    break  
 
-                # Check if high-priority (read extra 10 bytes)
-                extra = file.read(10)
-                if extra:
-                    priority = extra.decode().strip()
-                    task = HighPriorityTask(task_id, title, priority)
-                else:
+                if len(data) == NORMAL_TASK_SIZE:  # Standard task
+                    task_id, title, completed = struct.unpack("I50s?", data)
+                    title = title.decode().strip()
                     task = Task(task_id, title)
+
+                elif len(data) == HIGH_PRIORITY_TASK_SIZE:  # High-priority task
+                    task_id, title, completed, priority = struct.unpack("I50s?10s", data)
+                    title = title.decode().strip()
+                    priority = priority.decode().strip()
+                    task = HighPriorityTask(task_id, title, priority)
+
+                else:
+                    print(f"Warning: Corrupt record at position {pos}. Skipping.")
+                    break  # Avoid crashing on corrupt files
 
                 task.completed = completed
                 self.tasks.append(task)
+
 
     def view_tasks(self):
         """Displays the list of tasks."""
